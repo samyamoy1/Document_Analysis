@@ -1,0 +1,23 @@
+# Python environment and cache
+venv/
+__pycache__/
+*.py[cod]
+
+# Local research papers
+*.pdf
+sample_papers/
+
+# Generated embeddings and outputs
+*.npy
+paper_chunks.json
+paper_summary.txt
+intermediate_notes.txt
+raw_model_output.txt
+verified_claims.json
+
+# Secrets
+.env
+.streamlit/secrets.toml
+
+# Editor files
+.vscode/
