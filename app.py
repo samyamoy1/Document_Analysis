@@ -39,19 +39,23 @@ def load_embedding_model():
 def load_llm():
     tokenizer = AutoTokenizer.from_pretrained(LLM_MODEL)
 
-    model = AutoModelForCausalLM.from_pretrained(
-        LLM_MODEL,
-        dtype=(
-            torch.float16
-            if torch.cuda.is_available()
-            else torch.float32
-        ),
-        device_map="auto"
-    )
+    if torch.cuda.is_available():
+        model = AutoModelForCausalLM.from_pretrained(
+            LLM_MODEL,
+            dtype=torch.float16,
+            low_cpu_mem_usage=False
+        )
+        model = model.to("cuda")
+    else:
+        model = AutoModelForCausalLM.from_pretrained(
+            LLM_MODEL,
+            dtype=torch.float32,
+            low_cpu_mem_usage=False
+        )
+        model = model.to("cpu")
 
     model.eval()
     return tokenizer, model
-
 
 def extract_chunks(pdf_bytes):
     """Extract text and split it into overlapping chunks."""
