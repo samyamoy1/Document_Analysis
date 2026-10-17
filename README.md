@@ -1,105 +1,62 @@
 # Research Paper Assistant
 
-A Generative AI application that helps users understand academic research papers through automated summarization and question answering using Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG).
+A GenAI-powered application that helps users understand research papers through automated summarization and question answering.
 
 ## Features
 
 - Upload research papers in PDF format.
-- Generate simplified summaries of research papers.
-- Ask questions about document content.
+- Generate structured summaries.
+- Ask questions about the paper using RAG.
 - Retrieve relevant passages using semantic search.
-- View source passages and their page numbers.
+- Display source page references.
+- Support GPU and CPU inference.
 
 ## Tech Stack
 
-- **Language:** Python
-- **Interface:** Streamlit
-- **LLM:** Qwen2.5-1.5B-Instruct
-- **Embeddings:** all-MiniLM-L6-v2
-- **Frameworks:** PyTorch, Hugging Face Transformers, Sentence Transformers
-- **PDF Processing:** PyMuPDF
-
-## Workflow
-
-1. Extract text from uploaded PDF documents.
-2. Split the text into smaller chunks.
-3. Generate embeddings for semantic search.
-4. Retrieve relevant passages based on the user's question.
-5. Generate answers using the language model.
-6. Display answers alongside relevant source passages.
-
-The summarization pipeline processes document chunks in batches to generate a consolidated summary.
-
-## Project Structure
-
-```text
-Document_Analysis/
-├── app.py
-├── extract_pdf.py
-├── summarize_paper.py
-├── build_embeddings.py
-├── search_paper.py
-├── ask_paper.py
-├── test_model.py
-├── requirements.txt
-├── .gitignore
-└── README.md
-```
+Python, Streamlit, PyTorch, Hugging Face Transformers, Qwen2.5-1.5B-Instruct, Sentence Transformers, and PyMuPDF.
 
 ## Installation
 
-**1. Clone the repository**
+Clone the repository:
 
 ```bash
 git clone https://github.com/samyamoy1/Document_Analysis.git
 cd Document_Analysis
 ```
 
-**2. Create and activate a virtual environment**
+Create and activate a virtual environment:
 
 ```bash
-python -m venv venv
+python -m venv .venv
 ```
 
-Windows PowerShell:
+On Windows:
 
 ```powershell
-.\venv\Scripts\Activate.ps1
+.\.venv\Scripts\Activate.ps1
 ```
 
-**3. Install dependencies**
+Install dependencies and run the application:
 
 ```bash
 pip install -r requirements.txt
+streamlit run app.py
 ```
 
-**4. Run the application**
+Open the local URL displayed in your terminal.
 
-```bash
-python -m streamlit run app.py
-```
-
-Open the local URL displayed in the terminal. The required models may be downloaded during the first run.
+The first run may download the required models. An NVIDIA GPU is recommended for faster inference, but CPU execution is also supported.
 
 ## Limitations
 
-- Generated summaries and answers may contain inaccuracies.
-- Processing time depends on document length and available hardware.
-- Important information should be verified against the original paper.
-
-## Future Improvements
-
-- Support multiple documents in a single session.
-- Improve retrieval and answer accuracy.
-- Add conversation history and follow-up questions.
-- Deploy the application for online access.
+Generated answers may contain inaccuracies. Always verify important information against the original paper. CPU inference may be slow for larger workloads.
 
 ## Author
 
-**Samyamoy Das**
+Samyamoy Das
 
-GitHub: [samyamoy1](https://github.com/samyamoy1)
+GitHub: [@samyamoy1](https://github.com/samyamoy1)
 
----
+## License
 
-This project explores Generative AI, semantic search, Large Language Models, and Retrieval-Augmented Generation.
+A license has not yet been specified.
