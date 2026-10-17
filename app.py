@@ -213,7 +213,7 @@ Rules:
 - Include page references when available.
 
 NOTES:
-""" + "\n\n".join(notes) + "\n\n".join(notes)
+""" + "\n\n".join(notes)
 
     summary = generate_text(
         tokenizer,
